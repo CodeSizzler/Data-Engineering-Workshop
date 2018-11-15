@@ -1,0 +1,10 @@
+ var connectionString= "Endpoint=sb://codesizzler.servicebus.windows.net/;SharedAccessKeyName=RootManageSharedAccessKey;SharedAccessKey=Cpufv5nL0RwJVqBwJbygaUJD/lNJe73KtYCQtAc+zyA=";            
+            var queueName = "mynewqueue";
+
+            var client = QueueClient.CreateFromConnectionString(connectionString, queueName);
+            var message = new BrokeredMessage("This is a test message!");
+
+            client.Send(message);
+
+            Console.WriteLine("Message successfully sent! Press ENTER to exit program");
+            Console.ReadLine();
